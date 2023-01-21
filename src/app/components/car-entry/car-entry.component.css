@@ -1,0 +1,16 @@
+form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.timeField mat-form-field.hour{
+    width: 80%;
+}
+
+.timeField mat-form-field.amPm{
+    width: 20%;
+}

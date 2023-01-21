@@ -1,0 +1,92 @@
+<section class="container">
+    <h2>Car Entry Form</h2>
+    <form [formGroup]="carEntryForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Vehicale License Number</mat-label>
+            <input matInput formControlName="licenseNo" placeholder="Ex. 344928349875">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Vehicle Type</mat-label>
+            <mat-select formControlName="vehicleType">
+                <mat-option *ngFor="let type of vehicleType" [value]="type">
+                    {{type}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Vehicale Owner Name</mat-label>
+            <input matInput formControlName="ownerName" placeholder="Ex. John Doe">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Vehicale Owner Phone</mat-label>
+            <input matInput formControlName="ownerPhone" placeholder="Ex. 01624772984">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Status(in/out)</mat-label>
+            <mat-select formControlName="status">
+                <mat-option *ngFor="let status of statuses" [value]="status">
+                    {{status}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Car Owner Address</mat-label>
+            <input matInput formControlName="ownerAddress" placeholder="Ex. 01624772984">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Entry Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="carEntryDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="timeField">
+            <mat-form-field class="hour" appearance="fill">
+                <mat-label>Entry Time</mat-label>
+                <mat-select formControlName="carEntryHour">
+                    <mat-option *ngFor="let hour of hours" [value]="hour">
+                        {{hour}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="amPm" appearance="fill">
+                <mat-label>AM/PM</mat-label>
+                <mat-select formControlName="carEntryAmPm">
+                    <mat-option *ngFor="let hour of amPm" [value]="hour">
+                        {{hour}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Exit Date</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="carExitDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        <div class="timeField">
+            <mat-form-field class="hour" appearance="fill">
+                <mat-label>Exit Time</mat-label>
+                <mat-select formControlName="carExitHour">
+                    <mat-option *ngFor="let hour of hours" [value]="hour">
+                        {{hour}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="amPm" appearance="fill">
+                <mat-label>AM/PM</mat-label>
+                <mat-select formControlName="carExitAmPm">
+                    <mat-option *ngFor="let hour of amPm" [value]="hour">
+                        {{hour}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Parking Charge</mat-label>
+            <input matInput formControlName="charge" placeholder="Ex. 20">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+    </form>
+</section>
