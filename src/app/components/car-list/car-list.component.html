@@ -7,6 +7,8 @@
             <p>License No: {{car.licenseNo}}</p>
             <p>Entry Date & Time: {{car.carEntryDate | date}}, {{car.carEntryHour}}{{car.carEntryAmPm}}</p>
             <p>Exit Date & Time: {{car.carExitDate | date}}, {{car.carExitHour}}{{car.carExitAmPm}}</p>
+            <button mat-raised-button (click)="editCarEntry(car.id)">Edit</button>
         </mat-card-content>
     </mat-card>
 </section>
+<router-outlet></router-outlet>

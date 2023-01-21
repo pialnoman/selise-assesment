@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 // import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { FormBuilder } from '@angular/forms';
 import { CarServiceService } from '../../services/car-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-car-entry',
-  templateUrl: './car-entry.component.html',
-  styleUrls: ['./car-entry.component.css']
+  selector: 'app-car-edit',
+  templateUrl: './car-edit.component.html',
+  styleUrls: ['./car-edit.component.css']
 })
-export class CarEntryComponent implements OnInit {
+export class CarEditComponent  implements OnInit {
 
   carEntryForm = this.fb.group({
     licenseNo: [''],
@@ -35,6 +36,8 @@ export class CarEntryComponent implements OnInit {
   constructor(
     private fb: FormBuilder, 
     private CarServiceService: CarServiceService,
+    private _route: Router,
+    private router: ActivatedRoute,
     // private store: AngularFirestore, 
     // private carEntry: AngularFirestoreDocument<any>
   ) {
@@ -42,7 +45,12 @@ export class CarEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.carList = window.localStorage.getItem('carEntry');
+    this.router.queryParams.subscribe((params: any) => {
+      if (params && params['id']) {
+        this.carList = this.carList[params['id']]
+        console.log(this.carList)
+      }
+    })
   }
 
   submit() {
