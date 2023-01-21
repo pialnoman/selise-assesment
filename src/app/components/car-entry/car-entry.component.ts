@@ -25,7 +25,7 @@ export class CarEntryComponent implements OnInit {
     carExitAmPm: [''],
     charge: ['']
   })
-  vehicleType = ["Microbus", "Car", "truck", "Pickup"];
+  vehicleType = ["Microbus", "Car", "truck"];
   statuses = ["in", "out"];
   hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
   amPm = ["AM", "PM"];

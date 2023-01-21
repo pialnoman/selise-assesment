@@ -1,0 +1,30 @@
+<div class="container">
+    <div fxLayout="row" fxLayoutAlign="space-around start" fxLayoutGap="15">
+        <div fxFlex="50%">
+            <mat-card>
+                <mat-card-content>Total cars parked
+                    <p>{{carList.length}}</p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-content>Total empty slot
+                    <p>{{TotalSlot - carList.length}} of {{TotalSlot}}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div fxFlex="50%">
+            <mat-card>
+                <mat-card-content>Vehicle type info.
+                    <p>Microbus: {{microbus}}</p>
+                    <p>Car: {{car}}</p>
+                    <p>Truck: {{truck}}</p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-content>vehicle parked more than two days
+                    <p>N/A</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

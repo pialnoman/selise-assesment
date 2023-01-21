@@ -21,12 +21,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarEntryComponent,
-    CarListComponent
+    CarListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
