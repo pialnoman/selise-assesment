@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarServiceService } from '../../services/car-service.service';
 
 @Component({
   selector: 'app-car-list',
@@ -9,10 +10,15 @@ export class CarListComponent implements OnInit{
 
   carList: any;
 
+  constructor(
+    private CarServiceService: CarServiceService
+  ) {
+
+  }
+
   ngOnInit() {
-    var carList = localStorage.getItem('carEntry');
-    console.log(typeof carList)
-    this.carList = JSON.stringify(carList);
+    this.carList = this.CarServiceService.carEntry;
+    console.log(this.carList);
   }
 
 }

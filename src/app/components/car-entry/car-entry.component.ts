@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { FormBuilder } from '@angular/forms';
+import { CarServiceService } from '../../services/car-service.service';
 
 @Component({
   selector: 'app-car-entry',
@@ -32,6 +33,7 @@ export class CarEntryComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder, 
+    private CarServiceService: CarServiceService,
     // private store: AngularFirestore, 
     // private carEntry: AngularFirestoreDocument<any>
   ) {
@@ -39,7 +41,7 @@ export class CarEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.carList = localStorage.getItem('carEntry');
+    this.carList = window.localStorage.getItem('carEntry');
   }
 
   submit() {
@@ -55,14 +57,13 @@ export class CarEntryComponent implements OnInit {
       "carEntryDate": this.carEntryForm.value.carEntryDate,
       "carEntryHour": this.carEntryForm.value.carEntryHour,
       "carEntryAmPm": this.carEntryForm.value.carEntryAmPm,
-      "carExitDateTime": this.carEntryForm.value.carExitDate,
+      "carExitDate": this.carEntryForm.value.carExitDate,
       "carExitHour": this.carEntryForm.value.carExitHour,
       "carExitAmPm": this.carEntryForm.value.carExitAmPm,
       "charge": this.carEntryForm.value.charge
     }
     // carEntryRef.set(payload);
-    localStorage.setItem('carEntry',JSON.stringify(payload))
-    console.log(localStorage.getItem('carEntry'))
+    this.CarServiceService.carEntry.push(payload);
   }
 
 }

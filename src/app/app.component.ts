@@ -10,7 +10,7 @@ export class AppComponent implements OnInit{
   title = 'parking-management-system';
 
   ngOnInit() {
-    console.log(localStorage.getItem('carEntry'))
+    console.log(window.localStorage.getItem('carEntry'))
   }
 
 }

@@ -1,6 +1,12 @@
 <section class="container">
     <h2>Car List</h2>
-    <mat-card>
-        <mat-card-content>{{carList}}</mat-card-content>
+    <mat-card  *ngFor="let car of carList">
+        <mat-card-content>
+            <p>Owner: {{car.ownerName}}</p>
+            <p>Vehicle Type: {{car.vehicleType}}</p>
+            <p>License No: {{car.licenseNo}}</p>
+            <p>Entry Date & Time: {{car.carEntryDate | date}}, {{car.carEntryHour}}{{car.carEntryAmPm}}</p>
+            <p>Exit Date & Time: {{car.carExitDate | date}}, {{car.carExitHour}}{{car.carExitAmPm}}</p>
+        </mat-card-content>
     </mat-card>
 </section>
